@@ -1,0 +1,12 @@
+{
+  "name": "magi",
+  "version": "1.0.0",
+  "description": "Inspired by the Evangelion Magi system. It uses three local llms to make a decision.",
+  "license": "ISC",
+  "author": "polarbear",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  }
+}
