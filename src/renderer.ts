@@ -1,20 +1,46 @@
-import { ask} from "./backend.js"
 
-const send = document.querySelector("send");
-console.log("test");
-if (!send) process.exit(1);
+const send_button = document.getElementById("send");
+const output_text = document.getElementById("output");
+const input = document.querySelector("#question");
 
-send.addEventListener("click", () => {
-    console.log("test");
-    const message_box = document.querySelector("question");
-    if (!message_box) return;
+let rebound = false
 
-    const question = message_box.textContent;
+send_button?.addEventListener("click", async () => {
+    if (rebound) return;
+    rebound = true;
 
-    const reponse = ask(question);
-    const output = document.querySelector("output");
+    if (!input) {
+        console.error("Element with id 'question' can't be found");
+        rebound = false;
+        return;
+    }
+    if (!output_text) {
+        console.error("Element with id 'output' can't be found");
+        rebound = false;
+        return;
+    }
 
-    if (!output) return;
+    const question = input.value
+    output_text.textContent += 
+    `
+    CASPER-3 is thinking
+    BALTHASAR-2 is thinking
+    MELCHIOR-1 is thinking
 
-    output.textContent += reponse
-})
+    `;
+
+    console.log(question)
+    const response: MagiResponse = await window.backend.ask(question);
+    console.log(response);
+    output_text.textContent += 
+    `
+    CASPER-3: ${response.casper}
+
+    BALTHASAR-2: ${response.balthasar}
+
+    MELCHIOR-1: ${response.melchior}
+    
+    `;
+    output_text.scrollTop = output_text.scrollHeight;
+    rebound = false;
+});
