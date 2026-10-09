@@ -13,7 +13,7 @@
   },
   "main": "./src/index.js",
   "scripts": {
-    "start": "electron src",
+    "start": "electron src/",
     "backend": "node backend.ts",
     "lint": "echo \"No linting configured\""
   },
