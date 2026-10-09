@@ -13,8 +13,7 @@
   },
   "main": "./src/index.js",
   "scripts": {
-    "start": "electron src/",
-    "backend": "node backend.ts",
+    "start": "tsc && cp src/index.html dist && cp src/styles.css dist && electron dist",
     "lint": "echo \"No linting configured\""
   },
   "dependencies": {

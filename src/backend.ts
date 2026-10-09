@@ -23,13 +23,13 @@ export function create_models() {
   });
 }
 
-export function deleteModels(){
-  ollama.delete({model: "CASPER-3"});
-  ollama.delete({model: "BALTHASAR-2"});
-  ollama.delete({model: "MELCHIOR-1"});
+export function delete_models() {
+  ollama.delete({ model: "CASPER-3" });
+  ollama.delete({ model: "BALTHASAR-2" });
+  ollama.delete({ model: "MELCHIOR-1" });
 }
 
-export async function ask(question: string){
+export async function ask(question: string) {
   const response_casper = await ollama.chat({
     model: "CASPER-3",
     messages: [
@@ -60,5 +60,9 @@ export async function ask(question: string){
     ],
   });
 
-  return { casper: response_casper, balthasar: response_balthasar, melchior: response_melchior}
+  return {
+    casper: response_casper.message.content,
+    balthasar: response_balthasar.message.content,
+    melchior: response_melchior.message.content,
+  };
 }
