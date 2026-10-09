@@ -1,21 +1,31 @@
 import ollama from "ollama";
 
-export function create_models() {
-  ollama.create({
+export async function check_ollama() {
+  try {
+    const list = await ollama.list();
+    return true
+  } catch (error) {
+    console.warn(error);
+    return false;
+  }
+}
+
+export async function create_models() {
+  await ollama.create({
     model: "CASPER-3",
     from: "gemma3:1b",
     system:
       "You are Casper. You have the personality of a woman, so you have to think like one. The start of your responses have to be yes or no. Make sure to write a formal explanation. No markdown formatting. You are one of 3 supercomputer AIs who make up the Magi in Nerv HQ. No emojis",
   });
 
-  ollama.create({
+  await ollama.create({
     model: "BALTHASAR-2",
     from: "gemma3:1b",
     system:
       "You are Balthasar. You are mother, so you have to make decisions that protect your children. The start of your responses must be yes or no. Make sure to write a formal explanation. No markdown formatting. You are one of 3 supercomputer AIs who make up the Magi in Nerv HQ. No emojis",
   });
 
-  ollama.create({
+  await ollama.create({
     model: "MELCHIOR-1",
     from: "gemma3:1b",
     system:
@@ -30,7 +40,7 @@ export function delete_models() {
 }
 
 export async function ask(question: string) {
-  console.log(question)
+  console.log(question);
   const response_casper = await ollama.chat({
     model: "CASPER-3",
     messages: [

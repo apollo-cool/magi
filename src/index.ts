@@ -1,8 +1,8 @@
-import { app, BrowserWindow, ipcMain } from 'electron'
+import { app, BrowserWindow, ipcMain, shell } from 'electron'
 import path from "node:path";
-import { create_models, delete_models, ask } from './backend.js';
+import { create_models, delete_models, ask, check_ollama } from './backend.js';
 
-console.log(import.meta.dirname);
+const isOllamaRunning = await check_ollama();
 
 const createWindow = () => {
   const win = new BrowserWindow({
@@ -15,18 +15,34 @@ const createWindow = () => {
     }
 })
 
-  win.loadFile('index.html')
+  if (!isOllamaRunning) {
+    win.loadFile("pages/error.html")
+  } else {
+    win.loadFile('index.html')
+  }
 }
 
 app.whenReady().then( async () => {
   ipcMain.handle("ask", (event, question) => {
     return ask(question);
   })
-  await create_models();
+
+  ipcMain.handle("isOllamaRunning", () => isOllamaRunning)
+  ipcMain.handle("open_url", (event, url: string) => {
+    shell.openExternal(url);
+  })
+
+  if (isOllamaRunning){
+    await create_models();
+  }
+
   createWindow()
 })
 
 app.on("window-all-closed", async () => {
-  await delete_models();
+  if (isOllamaRunning){
+    await delete_models();
+  }
+
   app.exit();
 });

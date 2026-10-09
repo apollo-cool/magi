@@ -1,0 +1,30 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <title>Critical System Error</title>
+    <link rel="stylesheet" type="text/css" href="../styles.css" />
+  </head>
+
+  <body>
+    <h1>Critical System Error: Ollama not found</h2>
+    <p>
+        MAGI: It seems like Ollama isn't running or isn't installed. 
+        this program requires Ollama in order to run. Please 
+        install Ollama and restart the program. 
+    </p>
+
+    <button id="install_ollama">Install Ollama</button>  
+  </body>
+  <script src="../renderer.js" type="module"></script>
+</html>

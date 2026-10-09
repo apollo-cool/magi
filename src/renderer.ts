@@ -3,6 +3,9 @@ const send_button = document.getElementById("send");
 const output_text = document.getElementById("output");
 const input = document.querySelector("#question");
 
+const install_ollama = document.getElementById("install_ollama");
+console.log(install_ollama);
+
 let rebound = false
 
 send_button?.addEventListener("click", async () => {
@@ -43,4 +46,9 @@ send_button?.addEventListener("click", async () => {
     `;
     output_text.scrollTop = output_text.scrollHeight;
     rebound = false;
+});
+
+
+install_ollama?.addEventListener("click", () => {
+    window.backend.open_url("https://ollama.com/download");
 });

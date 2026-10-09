@@ -4,6 +4,7 @@ declare global {
   interface Window {
     backend: {
       ask: Function<string>;
+      open_url: Function<string>;
     };
   }
 
