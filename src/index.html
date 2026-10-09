@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -12,9 +12,16 @@
       content="default-src 'self'; script-src 'self'"
     />
     <title>Evangelion Magi</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
   <body>
-    <h1>Hello from Electron renderer!</h1>
-    <p>👋</p>
+    <h1>Evangelion Magi</h1>
+    <p>Ask a question:</p>
+    <div>
+      <input type="text" />
+      <button>Send</button>
+    </div>
+    <p>Console:</p>
+    <div id="console"></div>
   </body>
 </html>
