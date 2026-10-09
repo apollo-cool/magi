@@ -32,9 +32,10 @@ send_button?.addEventListener("click", async () => {
 
     `;
 
-    console.log(question)
+    output_text.scrollTop = output_text.scrollHeight;
+
     const response: MagiResponse = await window.backend.ask(question);
-    console.log(response);
+
     output_text.textContent += 
     `
     CASPER-3: ${response.casper}

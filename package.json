@@ -11,10 +11,12 @@
     "name": "apollo",
     "email": "appllo_cool@proton.me"
   },
-  "main": "./src/index.js",
+  "main": "./dist/index.js",
   "scripts": {
-    "start": "tsc && cp src/index.html dist && cp src/styles.css dist && cp -r src/pages dist && electron dist",
-    "lint": "echo \"No linting configured\""
+    "start": "tsc && cp src/index.html dist && cp src/styles.css dist && cp -r src/pages dist && electron-forge start dist",
+    "lint": "echo \"No linting configured\"",
+    "make": "tsc && cp src/index.html dist && cp src/styles.css dist && cp -r src/pages dist && electron-forge make dist",
+    "package": "tsc && cp src/index.html dist && cp src/styles.css dist && cp -r src/pages dist && electron-forge package dist"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.1",
@@ -23,6 +25,7 @@
     "typescript": "^7.0.2"
   },
   "devDependencies": {
+    "@electron-forge/cli": "^8.0.1",
     "electron": "^44.7.0"
   }
 }

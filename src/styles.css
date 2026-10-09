@@ -26,6 +26,9 @@ input {
     border-color: orange;
     height: 10rem;
     padding: 1rem;
+
+    scrollbar-color: orange;
+    scroll-behavior: smooth;
 }
 
 button {
@@ -34,6 +37,7 @@ button {
     border-radius: 0;
     color: orange;
     border-style: solid;
+    cursor: pointer;
 }
 
 textarea:focus, input:focus {
@@ -48,8 +52,10 @@ textarea {
     background-color: black;
     width: 100%;
     height: 100%;
-
-    scrollbar-color: orangered;
-    scroll-behavior: smooth;
     
+    
+}
+
+console::-webkit-scrollbar {
+    color: orange
 }

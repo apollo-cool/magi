@@ -16,9 +16,9 @@ const createWindow = () => {
 })
 
   if (!isOllamaRunning) {
-    win.loadFile("pages/error.html")
+    win.loadFile("dist/pages/error.html")
   } else {
-    win.loadFile('index.html')
+    win.loadFile('dist/index.html')
   }
 }
 

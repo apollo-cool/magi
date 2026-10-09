@@ -8,8 +8,7 @@
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
     "module": "esnext",
-    "target": "esnext", 
- 
+    "target": "esnext",
 
     // For nodejs:
     // "lib": ["esnext"],
@@ -40,6 +39,14 @@
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
-    "skipLibCheck": true,
-  }
+    "skipLibCheck": true
+  },
+  "include": [
+    "src/**/*" // Restric include to just your src folder
+  ],
+  "exclude": [
+    "node_modules",
+    "arm64", // <-- Add this to ignore the mac build folder
+    "**/*.app" // <-- Add this as an extra safety measure for .app bundles
+  ]
 }

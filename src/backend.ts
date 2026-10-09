@@ -33,10 +33,10 @@ export async function create_models() {
   });
 }
 
-export function delete_models() {
-  ollama.delete({ model: "CASPER-3" });
-  ollama.delete({ model: "BALTHASAR-2" });
-  ollama.delete({ model: "MELCHIOR-1" });
+export async function delete_models() {
+  await ollama.delete({ model: "CASPER-3" });
+  await ollama.delete({ model: "BALTHASAR-2" });
+  await ollama.delete({ model: "MELCHIOR-1" });
 }
 
 export async function ask(question: string) {
