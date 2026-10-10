@@ -21,7 +21,7 @@ This project works by leveraging Ollama's api to create custom "models" in order
 ## Installation
 
 ### Method 1: Prebuilt Download
-We have a download avaliable for [MacOS](https://github.com/apollo-cool/magi/releases) right here:
+We have a download available for [MacOS and Linux(Debian)](https://github.com/apollo-cool/magi/releases) right here:
 
 ### Build your own
 
