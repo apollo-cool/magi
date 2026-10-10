@@ -5,6 +5,8 @@ declare global {
     backend: {
       ask: Function<string>;
       open_url: Function<string>;
+      check_ollama: Function;
+      ollama_error: Function;
     };
   }
 
